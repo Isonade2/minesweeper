@@ -28,7 +28,7 @@ namespace MineSweeper2
         private void button2_Click(object sender, EventArgs e)
         {
             Form1 form1 = new Form1();
-            form1.Init(16, 16, 40);
+            form1.Init(9, 9, 40);
             form1.Show();
             this.Close();
         }
@@ -39,6 +39,10 @@ namespace MineSweeper2
             form1.Init(30,16,99);
             form1.Show();
             this.Close();
+        }
+
+        private void Init_FormClosed(object sender, FormClosedEventArgs e)
+        {
         }
     }
 }

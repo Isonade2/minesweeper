@@ -63,7 +63,7 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // Form2
+            // Init
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -71,8 +71,9 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Name = "Form2";
+            this.Name = "Init";
             this.Text = "난이도설정";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Init_FormClosed);
             this.ResumeLayout(false);
 
         }

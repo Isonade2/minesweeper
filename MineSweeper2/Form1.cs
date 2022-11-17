@@ -21,56 +21,64 @@ namespace MineSweeper2
         public void Init(int x, int y, int bomb)
         {
             feld = new int[x, y]; // 필드 생성
+            int a, b;
+            Random rnd = new Random(); // 지뢰 생성
+            for (int i = 0; i < bomb; i++)
+            {
+                a = rnd.Next(x);
+                b = rnd.Next(y);
+                if (feld[a, b] == -1)
+                    i--;
+                feld[a, b] = -1;
+            }
 
-            //Random rnd = new Random(); // 지뢰 생성
-            //int a, b;
-            //for (int i = 0; i < bomb; i++)
-            //{
-            //    a = rnd.Next(x);
-            //    b = rnd.Next(y);
-            //    if (feld[a, b] == -1)
-            //        i--;
-            //    feld[a, b] = -1;
-            //}
-            feld[0, 0] = -1;
-            feld[2, 0] = -1;
             for (int i = 0; i < x; i++)
             {
                 for (int j = 0; j < y; j++)
                 {
-                    if (feld[i, j] == -1)
+                    if (feld[i, j] < 0)
                     {
-                        if (i == 0 && j == 0)
+                        if (i == 0 && j == 0) // bomb 위치가 모서리 일때
                         {
-                            feld[i + 1, j] += 1;
-                            feld[i, j + 1] += 1;
-                            feld[i + 1, j + 1] += 1;
+                            feld[i + 1, j] += 1; feld[i, j +1] += 1; feld[i + 1, j + 1] += 1; continue;
                         }
-                        if (i==x-1 && j == 0)
+                        if (i == x-1 && j == 0)
                         {
-                            MessageBox.Show("hel");
-                            feld[i-1,j] += 1;
-                            feld[i - 1, j + 1] += 1;
-                            feld[i, j + 1] += 1;
+                            feld[i - 1, j] += 1; feld[i - 1, j + 1] += 1; feld[i, j + 1] += 1; continue;
+                        }
+                        if(i == 0 && j == y-1)
+                        {
+                            feld[i, j - 1] += 1; feld[i + 1, j - 1] += 1; feld[i + 1, j] += 1; continue;
+                        }
+                        if (i == x - 1 && j == y-1)
+                        {
+                            feld[i - 1, j] += 1; feld[i - 1, j - 1] += 1; feld[i, j - 1] += 1; continue;
+                        }
+                        if (i > 0 && j ==0 ) //bomb 위치가 위에 붙어 있을때
+                        {
+                            feld[i - 1, j] += 1; feld[i + 1, j] += 1; feld[i - 1, j + 1] += 1; feld[i + 1, j + 1] += 1; feld[i, j + 1] += 1;  continue;
+                        }
+                        if( i>0 && j == y -1) //bomb 위치가 아래에 붙어 있을때
+                        {
+                            feld[i - 1, j] += 1; feld[i - 1, j - 1] += 1; feld[i, j - 1] += 1; feld[i + 1, j - 1] += 1; feld[i + 1, j] += 1; continue;
+                        }
+                        if(i==0 && y>0) // bomb 위치가 왼쪽에 붙어 있을때
+                        {
+                            feld[i, j - 1] += 1; feld[i + 1, j - 1] += 1; feld[i + 1, j] += 1; feld[i + 1, j + 1] += 1; feld[i, j + 1] += 1; continue;
+                        }
+                        if (i == x - 1 && y>0) //bomb 위치가 오른쪽에 붙어있을때
+                        {
+                            feld[i, j - 1] += 1; feld[i - 1, j - 1] += 1; feld[i - 1, j] += 1; feld[i - 1, j + 1] += 1; feld[i, j + 1] += 1; continue;
                         }
                         else
                         {
-
-
-                            //feld[i - 1, j - 1] += 1;
-                            //feld[i, j - 1] += 1;
-                            //feld[i + 1, j - 1] += 1;
-
-                            //feld[i - 1, j] += 1;
-                            //feld[i + 1, j] += 1;
-
-                            //feld[i - 1, j + 1] += 1;
-                            //feld[i, j + 1] += 1;
-                            //feld[i + 1, j + 1] += 1;
+                            feld[i - 1, j - 1] += 1; feld[i - 1, j] += 1; feld[i - 1, j + 1] += 1; feld[i, j - 1] += 1; feld[i, j + 1] += 1;
+                            feld[i + 1, j - 1] += 1; feld[i + 1, j] += 1; feld[i + 1, j + 1] += 1; continue;
                         }
                     }
                 }
             }
+
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -96,8 +104,13 @@ namespace MineSweeper2
             Button b = (Button)sender;
             int x = b.Left / 50;
             int y = b.Top / 50;
-            if (feld[x, y] == -1)
-                b.Text = "bomb";
+            if (feld[x, y] < 0)
+            { 
+                b.Text = "\u274C";
+                //MessageBox.Show("gameover!");
+                //Application.Restart();
+
+            }
             else if (feld[x, y] == 0)
                 b.Text = "";
             else
