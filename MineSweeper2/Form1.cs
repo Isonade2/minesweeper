@@ -28,7 +28,7 @@ namespace MineSweeper2
                 a = rnd.Next(x);
                 b = rnd.Next(y);
                 if (feld[a, b] == -1)
-                    i--;
+                    continue;
                 feld[a, b] = -1;
             }
 
@@ -80,10 +80,12 @@ namespace MineSweeper2
             }
 
         }
+        
+        
         private void Form1_Load(object sender, EventArgs e)
         {
-            //Init(5, 3, 4);
             Button[,] BTN = new Button[feld.GetLength(0), feld.GetLength(1)];
+
             for (int x = 0; x < feld.GetLength(0); x++)
             {
                 for (int y = 0; y < feld.GetLength(1); y++)
@@ -92,9 +94,11 @@ namespace MineSweeper2
                     BTN[x, y].Size = new Size(50, 50);
                     BTN[x, y].Left = x * 50;
                     BTN[x, y].Top = y * 50;
-                    Controls.Add(BTN[x, y]);
-                    BTN[x, y].Click += BTN_Click;
                     BTN[x, y].TabStop = false;
+                    Controls.Add(BTN[x, y]);
+                    BTN[x, y].Click += new EventHandler(BTN_Click);
+                    
+                    
                 }
             }
 
@@ -112,10 +116,17 @@ namespace MineSweeper2
 
             }
             else if (feld[x, y] == 0)
+            { 
                 b.Text = "";
+                b.Click += BTN_Click;
+            }
             else
                 b.Text = "" + feld[x, y];
             b.Enabled = false;
+        }
+        private void BTN_Recursive(object sender,EventArgs e)
+        {
+
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)

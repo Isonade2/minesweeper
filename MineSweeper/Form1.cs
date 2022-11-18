@@ -21,9 +21,28 @@ namespace MineSweeper
         private void init(int breite, int hohe, int bomben)
         {
             feld = new int[breite, hohe];
-            feld[1, 1] = -1;
-            feld[0, 0] = 1;
-            feld[1, 0] = 2;
+            Random zufall = new Random();
+            while (bomben > 0)
+            {
+                int x = zufall.Next(breite);
+                int y = zufall.Next(hohe);
+                if (feld[x, y] == -1) continue;
+                feld[x, y] = -1;
+                for(int dx = -1; dx<=1; dx++)
+                {
+                    for (int dy = -1; dy <= 1; dy++)
+                    {
+                        if (x + dx < 0) continue;
+                        if (y + dy < 0) continue;
+                        if (x + dx >= breite) continue;
+                        if (y + dy >= hohe) continue;
+
+                        if (feld[x + dx, y + dy] != -1)
+                            feld[x + dx, y + dy]++;
+                    }
+                }
+                bomben--;
+            }
         }
         private void Form1_Load(object sender, EventArgs e)
         {
