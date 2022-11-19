@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MineSweeper2.Properties
+namespace MineSweeperFinal.Properties
 {
 
 

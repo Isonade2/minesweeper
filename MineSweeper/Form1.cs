@@ -13,6 +13,8 @@ namespace MineSweeper
     public partial class Form1 : Form
     {
         private int[,] feld;
+        private Button[,] buttons;
+        public int hohe;
         public Form1()
         {
             InitializeComponent();
@@ -21,6 +23,7 @@ namespace MineSweeper
         private void init(int breite, int hohe, int bomben)
         {
             feld = new int[breite, hohe];
+            buttons = new Button[breite, hohe]; 
             Random zufall = new Random();
             while (bomben > 0)
             {
@@ -46,12 +49,13 @@ namespace MineSweeper
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            init(5, 5, 4);
+            init(8, 8, 9);
             for (int x = 0; x < feld.GetLength(0); x++)
             {
                 for (int y = 0; y < feld.GetLength(1); y++)
                 {
                     Button b = new Button();
+                    buttons[x, y] = b;
                     b.Font = new Font("Arial", 20);
                     b.Left = x * 40;
                     b.Width = 40;
@@ -71,12 +75,51 @@ namespace MineSweeper
             int y = b.Top / 40;
             if (feld[x, y] == -1)
                 b.Text = "\U0001F4A3";
-            else if ((feld[x, y] == 0))
-                b.Text = "";
             else
-                b.Text = "" + feld[x, y];
+            {
+                if ((feld[x, y] == 0))
+                {
+                    b.Text = "";
+                    recursive(x, y);
+                }
+
+                else
+                    b.Text = "" + feld[x, y];
+            }
+            
             b.Enabled = false;
 
+        }
+
+        private void recursive(int x, int y)
+        {
+            buttons[x, y].Text = "";
+            buttons
+
+
+
+
+            //Stack<Point> stapel = new Stack<Point>();
+            //stapel.Push(new Point(x, y));
+            //while (stapel.Count > 0)
+            //{
+            //    Point p = stapel.Pop();
+            //    if (p.X < 0 || p.Y < 0) continue;
+            //    if (p.X >= feld.GetLength(0) || p.Y >= feld.GetLength(1)) continue;
+
+            //    if (buttons[p.X, p.Y].Enabled == false) continue;
+
+            //    buttons[p.X, p.Y].Enabled = false;
+            //    if (feld[p.X, p.Y] != 0)
+            //        buttons[p.X, p.Y].Text = "" + feld[p.X, p.Y];
+
+            //    if (feld[p.X, p.Y] != 0) continue;
+            //    stapel.Push(new Point(p.X - 1, p.Y));
+            //    stapel.Push(new Point(p.X + 1, p.Y));
+            //    stapel.Push(new Point(p.X, p.Y - 1));
+            //    stapel.Push(new Point(p.X, p.Y + 1));
+
+            //}
         }
     }
 }

@@ -1,0 +1,13 @@
+C:\Users\kimchi\Desktop\mine\MineSweeperFinal\bin\Debug\MineSweeperFinal.exe.config
+C:\Users\kimchi\Desktop\mine\MineSweeperFinal\bin\Debug\MineSweeperFinal.exe
+C:\Users\kimchi\Desktop\mine\MineSweeperFinal\bin\Debug\MineSweeperFinal.pdb
+C:\Users\kimchi\Desktop\mine\MineSweeperFinal\obj\Debug\MineSweeperFinal.csproj.AssemblyReference.cache
+C:\Users\kimchi\Desktop\mine\MineSweeperFinal\obj\Debug\MineSweeperFinal.csproj.SuggestedBindingRedirects.cache
+C:\Users\kimchi\Desktop\mine\MineSweeperFinal\obj\Debug\MineSweeperFinal.Form1.resources
+C:\Users\kimchi\Desktop\mine\MineSweeperFinal\obj\Debug\MineSweeperFinal.Properties.Resources.resources
+C:\Users\kimchi\Desktop\mine\MineSweeperFinal\obj\Debug\MineSweeperFinal.csproj.GenerateResource.cache
+C:\Users\kimchi\Desktop\mine\MineSweeperFinal\obj\Debug\MineSweeperFinal.csproj.CoreCompileInputs.cache
+C:\Users\kimchi\Desktop\mine\MineSweeperFinal\obj\Debug\MineSweeperFinal.exe
+C:\Users\kimchi\Desktop\mine\MineSweeperFinal\obj\Debug\MineSweeperFinal.pdb
+C:\Users\kimchi\Desktop\mine\MineSweeperFinal\obj\Debug\MineSweeperFinal.GameInit.resources
+C:\Users\kimchi\Desktop\mine\MineSweeperFinal\obj\Debug\MineSweeperFinal.End.resources

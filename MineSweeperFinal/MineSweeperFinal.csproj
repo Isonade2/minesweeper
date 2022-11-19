@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3C38D255-2DAD-43A5-8A05-EC69A7AEF8F0}</ProjectGuid>
+    <ProjectGuid>{D9265DB9-CD56-46BD-84C5-9C785AAB96B9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>MineSweeper2</RootNamespace>
-    <AssemblyName>MineSweeper2</AssemblyName>
+    <RootNamespace>MineSweeperFinal</RootNamespace>
+    <AssemblyName>MineSweeperFinal</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,25 +46,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="End.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="End.Designer.cs">
+      <DependentUpon>End.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Init.cs">
+    <Compile Include="GameInit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Init.Designer.cs">
-      <DependentUpon>Init.cs</DependentUpon>
+    <Compile Include="GameInit.Designer.cs">
+      <DependentUpon>GameInit.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="End.resx">
+      <DependentUpon>End.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Init.resx">
-      <DependentUpon>Init.cs</DependentUpon>
+    <EmbeddedResource Include="GameInit.resx">
+      <DependentUpon>GameInit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

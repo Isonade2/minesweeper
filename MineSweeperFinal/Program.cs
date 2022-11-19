@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MineSweeper2
+namespace MineSweeperFinal
 {
     internal static class Program
     {
@@ -16,9 +16,9 @@ namespace MineSweeper2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            (new Init()).Show();
+//            Application.Run(new GameInit());
+            (new GameInit()).Show();
             Application.Run();
-
         }
     }
 }
